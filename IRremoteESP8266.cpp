@@ -387,20 +387,6 @@ void IRsend::sendDenon (unsigned long data,  int nbits)
     space(0);  // Always end with the LED off
 }
 
-
-
-#define WAIT { \
-  unsigned long cc = ESP.getCycleCount(); \
-  while (ESP.getCycleCount()-start < wait) \
-  { \
-    if (ESP.getCycleCount() < cc) { \
-      start += m_bitTime; \
-      wait += m_bitTime; \
-    } \
-  } \
-  wait += m_bitTime; \
-}
-
 void IRsend::mark(unsigned long time) {
   // Sends an IR mark for the specified number of microseconds.
   // The mark output is modulated at the PWM frequency.
