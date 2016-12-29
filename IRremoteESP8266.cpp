@@ -426,7 +426,7 @@ void IRsend::space(unsigned long  time) {
 void IRsend::enableIROut(int khz) {
   // Enables IR output.  The khz value controls the modulation frequency in kilohertz.
   OnPeriodicTime = ESP.getCpuFreqMHz()*333/khz;
-  OffPeriodicTime = ESP.getCpuFreqMHz()*666/khz;
+  OffPeriodicTime = ESP.getCpuFreqMHz()*667/khz;
 }
 
 
