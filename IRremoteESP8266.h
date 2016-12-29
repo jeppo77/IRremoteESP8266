@@ -43,7 +43,7 @@
  * or change order. Projects may save the type number for later usage
  * so numbering should always stay the same.
  */
-enum decode_type_t {
+/*enum decode_type_t {
   UNKNOWN = -1,
   UNUSED = 0,
   RC5,
@@ -64,7 +64,7 @@ enum decode_type_t {
   DAIKIN,
   DENON,
 };
-
+*/
 // Results returned from the decoder
 class decode_results {
 public:
@@ -192,10 +192,11 @@ public:
   void sendDaikinChunk(unsigned char buf[], int len, int start);
   void sendDenon(unsigned long data, int nbits);
   void enableIROut(int khz);
-  VIRTUAL void mark(int usec);
-  VIRTUAL void space(int usec);
+  VIRTUAL void mark(unsigned long  usec);
+  VIRTUAL void space(unsigned long  usec);
 private:
-  int halfPeriodicTime;
+  unsigned long OnPeriodicTime;
+  unsigned long OffPeriodicTime;
   int IRpin;
 } ;
 
